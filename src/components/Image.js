@@ -1,32 +1,23 @@
-
-import {useState } from "react";
-import Modal from "./Modal" 
-
+import { useState } from "react";
+import Modal from "./Modal";
 
 const Image = ({ data }) => {
-  
-  const [showModal, setShowModal]=useState(false)
-  const handleClose =()=> setShowModal(false)
-  
-  const handleOn=()=>{
-    setShowModal(true)
-  }
+  const [showModal, setShowModal] = useState(false);
+  const handleClose = () => setShowModal(false);
 
-   return (
+  const handleOn = () => {
+    setShowModal(true);
+  };
 
-   <>
-      <div 
-      onClick={handleOn}
-      className="p-5 rounded-3xl shadow-md bg-white" >
-        <article key={data.id} className="rounded-3xl" >
-        
-         <img
+  return (
+    <>
+      <div onClick={handleOn} className="p-5 rounded-3xl shadow-md bg-white">
+        <article key={data.id} className="rounded-3xl">
+          <img
             src={data.urls.regular}
             alt={data.user.username}
-            className="h-52 object-fit object-cover w-full lg:h-80 rounded-3xl"
-            
+            className="h-52 object-fill w-full lg:h-80 rounded-3xl"
           />
-           
 
           <div className="p-5 pb-0 flex flex-col md:flex-row items-start md:items-center justify-between">
             <article className="flex items-center justify-start ">
@@ -37,11 +28,10 @@ const Image = ({ data }) => {
               />
               <ul>
                 <li className="text-slate-800 font-bold">{data.user.name}</li>
-                
               </ul>
             </article>
 
-            <article className="mt-5 md:mt-0 mr-0">
+            <article className="mt-5 md:mt-0 mr-0 ">
               <a
                 href={`https://instagram.com/${data.user.instagram_username}`}
                 className="text-sm text-slate-800 underline "
@@ -57,10 +47,9 @@ const Image = ({ data }) => {
           </div>
         </article>
       </div>
-         <Modal onClose={handleClose} visible={showModal} data={data}/>
+      <Modal onClose={handleClose} visible={showModal} data={data} />
     </>
-  )
-}
+  );
+};
 
-
-export default Image
+export default Image;

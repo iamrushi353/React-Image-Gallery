@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useState } from "react";
 import { ImageContext } from "../App";
 
 const SearchField = () => {
@@ -7,21 +7,27 @@ const SearchField = () => {
 
   const handleInputChange = (e) => {
     setSearchValue(e.target.value);
-    fetchData(`search/photos?per_page=12&query=${e.target.value}&client_id=${process.env.REACT_APP_ACCESS_KEY}`)
+    fetchData(
+      `search/photos?per_page=12&query=${e.target.value}&client_id=${process.env.REACT_APP_ACCESS_KEY}`,
+    );
     setSearchImage(e.target.value);
-  }
+  };
   const handleButtonSearch = () => {
-    fetchData(`search/photos?per_page=12&query=${searchValue}&client_id=${process.env.REACT_APP_ACCESS_KEY}`)
+    fetchData(
+      `search/photos?per_page=12&query=${searchValue}&client_id=${process.env.REACT_APP_ACCESS_KEY}`,
+    );
     setSearchValue("");
     setSearchImage(searchValue);
-  }
-  const handleEnterSearch = e => {
-    if(e.key === 'Enter') {
-      fetchData(`search/photos?per_page=12&query=${searchValue}&client_id=${process.env.REACT_APP_ACCESS_KEY}`)
+  };
+  const handleEnterSearch = (e) => {
+    if (e.key === "Enter") {
+      fetchData(
+        `search/photos?per_page=12&query=${searchValue}&client_id=${process.env.REACT_APP_ACCESS_KEY}`,
+      );
       setSearchValue("");
       setSearchImage(searchValue);
     }
-  }
+  };
 
   return (
     <div className="flex">
@@ -32,14 +38,16 @@ const SearchField = () => {
         value={searchValue}
         onChange={handleInputChange}
         onKeyDown={handleEnterSearch}
-        />
+      />
       <button
         onClick={handleButtonSearch}
         disabled={!searchValue}
         className="bg-blue-600 px-6 py-2.5 text-white rounded-tr rounded-br focus:ring-2 focus:ring-blue-300 disabled:bg-gray-400"
-      >Search</button>
+      >
+        Search
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default SearchField
+export default SearchField;

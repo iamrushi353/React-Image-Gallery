@@ -1,30 +1,27 @@
-import React from 'react'
+import React from "react";
 
-
-const Modal = ({visible, onClose, data }) => {
-  const handleClose=()=>{
+const Modal = ({ visible, onClose, data }) => {
+  const handleClose = () => {
     onClose();
-  } 
-  
-  if(!visible) return null;
+  };
+
+  if (!visible) return null;
 
   return (
-     <div onClick={handleClose} className='fixed inset-0 bg-opacity-30 backdrop-blur-sm
-      flex justify-center items-center'>
-     
-     <div 
-  
-      className="bg-gradient-to-r from-cyan-500 to-blue-500 rounded-3xl w-2/5 h-4/5 ">
-        <article key={data.id} className="rounded-3xl w-full h-full" >
-        <a href={data.urls.regular} target="_blank" rel="noreferrer">
-         <img
-            src={data.urls.regular}
-            alt={data.user.username}
-            className="object-fill object-cover w-full h-4/5 rounded-3xl"
-            
-          />
+    <div
+      onClick={handleClose}
+      className="fixed inset-0 bg-opacity-30 backdrop-blur-sm
+      flex justify-center items-center"
+    >
+      <div className="bg-gradient-to-r from-cyan-500 to-blue-500 rounded-3xl w-2/5 h-4/5">
+        <article key={data.id} className="rounded-3xl w-full h-full">
+          <a href={data.urls.regular} target="_blank" rel="noreferrer">
+            <img
+              src={data.urls.regular}
+              alt={data.user.username}
+              className="object-fill w-full h-4/5 rounded-3xl"
+            />
           </a>
-          
 
           <div className="p-5 pb-0 pt-0 flex flex-col md:flex-row items-start md:items-center justify-between">
             <article className="flex items-center justify-start ">
@@ -35,13 +32,11 @@ const Modal = ({visible, onClose, data }) => {
               />
               <ul>
                 <li className="text-slate-800 font-bold">{data.user.name}</li>
-                
               </ul>
             </article>
 
-              <div >{data.user.location}</div>
+            <div>{data.user.location}</div>
             <article className="p-5 pb-0 mt-0 pt-0 md:mt-0 mr-0">
-            
               <a
                 href={`https://instagram.com/${data.user.instagram_username}`}
                 className="text-sm text-slate-800 underline "
@@ -49,24 +44,18 @@ const Modal = ({visible, onClose, data }) => {
                 rel="noreferrer"
               >
                 {data.user.instagram_username}
-                </a>
-                 <small className="text-slate-800 opacity-75 block font-bold">
-                     {data.likes} Likes
+              </a>
+              <small className="text-slate-800 opacity-75 block font-bold">
+                {data.likes} Likes
               </small>
-              
             </article>
-            
           </div>
-              
-               <div className='text-center'>{data.description}</div>
-               
-               
-           
+
+          <div className="text-center">{data.description}</div>
         </article>
       </div>
+    </div>
+  );
+};
 
-      </div> 
-  )
-}
-
-export default Modal
+export default Modal;
