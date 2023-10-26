@@ -11,12 +11,14 @@ const Image = ({ data }) => {
 
   return (
     <>
-      <div onClick={handleOn} className="p-5 rounded-3xl shadow-md bg-white">
+      <div className=" p-5 rounded-3xl shadow-md bg-white">
         <article key={data.id} className="rounded-3xl">
           <img
             src={data.urls.regular}
             alt={data.user.username}
-            className="h-52 object-fill w-full lg:h-80 rounded-3xl"
+            onClick={handleOn}
+            style={{ cursor: "pointer" }}
+            className=" h-52 object-fill w-full lg:h-80 rounded-3xl"
           />
 
           <div className="p-5 pb-0 flex flex-col md:flex-row items-start md:items-center justify-between">

@@ -8,8 +8,10 @@ import useAxios from "./hooks/useAxios";
 export const ImageContext = createContext();
 
 function App() {
-  const [searchImage, setSearchImage] = useState('');
-  const { response, isLoading, error, fetchData } = useAxios(`search/photos?per_page=12&query=cats&client_id=${process.env.REACT_APP_ACCESS_KEY}`);
+  const [searchImage, setSearchImage] = useState("");
+  const { response, isLoading, error, fetchData } = useAxios(
+    `search/photos?per_page=12&query=cats&client_id=${process.env.REACT_APP_ACCESS_KEY}`,
+  );
 
   const value = {
     response,
@@ -17,8 +19,8 @@ function App() {
     error,
     fetchData,
     searchImage,
-    setSearchImage
-  }
+    setSearchImage,
+  };
 
   return (
     <ImageContext.Provider value={value}>
